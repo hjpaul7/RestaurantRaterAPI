@@ -28,7 +28,7 @@ namespace RestaurantRaterAPI.Models
                     totalAverageRating += rating.AverageRating;
                 }
 
-                return (Ratings.Count > 0) ? totalAverageRating / Ratings.Count : 0;
+                return (Ratings.Count > 0) ? Math.Round(totalAverageRating / Ratings.Count, 2) : 0;
             }
         }
 
@@ -44,7 +44,7 @@ namespace RestaurantRaterAPI.Models
                     averageFoodScore += rating.FoodScore;
                 }
 
-                return (Ratings.Count > 0) ? averageFoodScore / Ratings.Count : 0;
+                return (Ratings.Count > 0) ? Math.Round(averageFoodScore / Ratings.Count, 2) : 0;
             }
         }
 
@@ -57,7 +57,7 @@ namespace RestaurantRaterAPI.Models
 
                 double totalEnvironmentScore = scores.Sum();
 
-                return (Ratings.Count > 0) ? totalEnvironmentScore / Ratings.Count : 0;
+                return (Ratings.Count > 0) ? Math.Round(totalEnvironmentScore / Ratings.Count, 2) : 0;
             }
         }
 
@@ -67,7 +67,7 @@ namespace RestaurantRaterAPI.Models
             get
             {
                 var totalScore = Ratings.Select(r => r.CleanlinessScore).Sum();
-                return (Ratings.Count > 0) ? totalScore / Ratings.Count : 0;
+                return (Ratings.Count > 0) ? Math.Round(totalScore / Ratings.Count, 2) : 0;
             }
         }
 
